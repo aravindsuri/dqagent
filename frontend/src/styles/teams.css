@@ -1,0 +1,1135 @@
+/* frontend/src/styles/teams.css */
+
+/* Teams Color Variables */
+:root {
+    --teams-purple: #6264A7;
+    --teams-purple-light: #8B5CF6;
+    --teams-purple-dark: #464775;
+    --teams-gray-50: #FAFAFA;
+    --teams-gray-100: #F3F2F1;
+    --teams-gray-200: #E1DFDD;
+    --teams-gray-300: #C8C6C4;
+    --teams-gray-400: #A19F9D;
+    --teams-gray-500: #8A8886;
+    --teams-gray-600: #605E5C;
+    --teams-gray-700: #323130;
+    --teams-red: #D13438;
+    --teams-red-light: #FDE7E9;
+    --teams-green: #107C10;
+    --teams-green-light: #F0FDF4;
+    --teams-yellow: #F7C52D;
+    --teams-yellow-light: #FFF4CE;
+    --teams-blue: #0078D4;
+    --teams-blue-light: #F0F9FF;
+  }
+  
+  /* Base Styles */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #FFFFFF;
+    color: var(--teams-gray-700);
+    line-height: 1.4;
+  }
+  
+  /* Teams App Layout */
+  .teams-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header Styles */
+  .teams-header {
+    height: 48px;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--teams-gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .teams-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .teams-app-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .teams-app-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--teams-purple), var(--teams-purple-light));
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .teams-app-icon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .teams-app-icon .grid-item {
+    background: white;
+    border-radius: 1px;
+  }
+  
+  .teams-app-title h1 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .teams-icon-button {
+    width: 24px;
+    height: 24px;
+    background: var(--teams-gray-100);
+    border: none;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+  }
+  
+  .teams-icon-button:hover {
+    background: var(--teams-gray-200);
+  }
+  
+  .teams-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .teams-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--teams-purple);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  
+  /* Tab Navigation */
+  .teams-tab-navigation {
+    height: 48px;
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--teams-gray-200);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+  }
+  
+  .teams-tabs {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .teams-tab {
+    padding: 8px 16px;
+    border-radius: 2px;
+    background: var(--teams-gray-100);
+    color: var(--teams-gray-600);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .teams-tab-active {
+    background: var(--teams-purple);
+    color: white;
+    font-weight: 600;
+  }
+  
+  .teams-tab-disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  .teams-badge {
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 0 4px;
+  }
+  
+  .teams-badge-error {
+    background: var(--teams-red);
+    color: white;
+  }
+  
+  /* Main Content */
+  .teams-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .teams-dashboard,
+  .teams-questionnaire {
+    flex: 1;
+    display: flex;
+  }
+  
+  .teams-content {
+    flex: 1;
+    background: #FFFFFF;
+    overflow-y: auto;
+  }
+  
+  /* Sidebar */
+  .teams-sidebar {
+    width: 280px;
+    background: var(--teams-gray-50);
+    border-right: 1px solid var(--teams-gray-200);
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .teams-sidebar h3 {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  /* Questionnaire Specific Styles */
+  .teams-questionnaire-header {
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--teams-gray-200);
+    padding: 16px;
+  }
+  
+  .teams-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .teams-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .teams-country-icon {
+    font-size: 24px;
+  }
+  
+  .teams-header-text h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    color: var(--teams-gray-600);
+  }
+  
+  .teams-header-progress {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .teams-progress-bar {
+    width: 120px;
+    height: 6px;
+    background: var(--teams-gray-200);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  
+  .teams-progress-fill {
+    height: 100%;
+    background: var(--teams-purple);
+    transition: width 0.3s ease;
+  }
+  
+  .teams-progress-text {
+    font-size: 11px;
+    color: var(--teams-gray-600);
+    white-space: nowrap;
+  }
+  
+  .teams-header-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .teams-warning-banner {
+    background: var(--teams-yellow-light);
+    border: 1px solid var(--teams-yellow);
+    padding: 8px 16px;
+    margin-top: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #8A6914;
+  }
+  
+  /* Question Navigator */
+  .teams-question-navigator {
+    width: 300px;
+    background: var(--teams-gray-50);
+    border-right: 1px solid var(--teams-gray-200);
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .teams-navigator-header h3 {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .teams-question-item {
+    background: #FFFFFF;
+    border: 1px solid var(--teams-gray-200);
+    border-radius: 4px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .teams-question-item:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .teams-question-active {
+    border-color: var(--teams-purple);
+    box-shadow: 0 1px 3px rgba(98, 100, 167, 0.2);
+  }
+  
+  .teams-question-priority-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+  }
+  
+  .teams-priority-critical .teams-question-priority-bar {
+    background: var(--teams-red);
+  }
+  
+  .teams-priority-high .teams-question-priority-bar {
+    background: var(--teams-yellow);
+  }
+  
+  .teams-priority-medium .teams-question-priority-bar {
+    background: #FF8C00;
+  }
+  
+  .teams-priority-low .teams-question-priority-bar {
+    background: var(--teams-gray-300);
+  }
+  
+  .teams-question-content {
+    margin-left: 8px;
+  }
+  
+  .teams-question-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  
+  .teams-question-number {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--teams-purple);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  
+  .teams-question-title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+    flex: 1;
+  }
+  
+  .teams-question-description {
+    margin: 4px 0;
+    font-size: 11px;
+    color: var(--teams-gray-600);
+    line-height: 1.3;
+  }
+  
+  .teams-question-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  
+  .teams-priority-badge {
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 8px;
+    text-transform: uppercase;
+  }
+  
+  .teams-priority-critical {
+    background: var(--teams-red);
+    color: white;
+  }
+  
+  .teams-priority-high {
+    background: var(--teams-yellow);
+    color: #8A6914;
+  }
+  
+  .teams-priority-medium {
+    background: #FF8C00;
+    color: white;
+  }
+  
+  .teams-priority-low {
+    background: var(--teams-gray-300);
+    color: var(--teams-gray-600);
+  }
+  
+  .teams-status-indicator {
+    font-size: 12px;
+  }
+  
+  .teams-status-completed {
+    color: var(--teams-green);
+  }
+  
+  .teams-status-partial {
+    color: var(--teams-yellow);
+  }
+  
+  .teams-status-pending {
+    color: var(--teams-gray-400);
+  }
+  
+  /* AI Analysis Panel */
+  .teams-ai-analysis {
+    margin-top: 24px;
+    background: var(--teams-blue-light);
+    border: 1px solid var(--teams-blue);
+    border-radius: 4px;
+    padding: 12px;
+  }
+  
+  .teams-ai-analysis h4 {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teams-blue);
+  }
+  
+  .teams-analysis-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px 0;
+  }
+  
+  .teams-analysis-points li {
+    font-size: 10px;
+    color: var(--teams-gray-700);
+    margin-bottom: 2px;
+  }
+  
+  .teams-confidence-score {
+    font-size: 10px;
+    color: var(--teams-blue);
+    font-weight: 500;
+  }
+  
+  /* Question Card */
+  .teams-question-card {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .teams-alert {
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-left: 4px solid;
+  }
+  
+  .teams-alert-critical {
+    background: var(--teams-red-light);
+    border-left-color: var(--teams-red);
+  }
+  
+  .teams-alert-high {
+    background: var(--teams-yellow-light);
+    border-left-color: var(--teams-yellow);
+  }
+  
+  .teams-alert-medium {
+    background: #FFF4E6;
+    border-left-color: #FF8C00;
+  }
+  
+  .teams-alert-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  
+  .teams-alert-icon {
+    font-size: 16px;
+  }
+  
+  .teams-alert-text {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .teams-alert-meta,
+  .teams-alert-data {
+    font-size: 12px;
+    color: #8A6914;
+    margin-top: 4px;
+  }
+  
+  .teams-question-content {
+    background: #FFFFFF;
+    border: 1px solid var(--teams-gray-200);
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  
+  .teams-question-header {
+    background: var(--teams-gray-100);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--teams-gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .teams-question-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-ai-badge {
+    background: var(--teams-gray-200);
+    border-radius: 12px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-ai-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--teams-purple);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 600;
+  }
+  
+  .teams-question-text {
+    padding: 16px;
+  }
+  
+  .teams-question-text p {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-question-context {
+    background: var(--teams-blue-light);
+    border: 1px solid var(--teams-blue);
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 12px 16px 16px 16px;
+    font-size: 11px;
+    color: var(--teams-blue);
+  }
+  
+  /* Response Section */
+  .teams-response-section {
+    background: #FFFFFF;
+    border: 1px solid var(--teams-gray-200);
+    border-radius: 4px;
+  }
+  
+  .teams-response-editor {
+    padding: 16px;
+  }
+  
+  .teams-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .teams-editor-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-response-tabs {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .teams-tab {
+    padding: 6px 12px;
+    border: 1px solid var(--teams-gray-200);
+    border-radius: 2px;
+    background: #FFFFFF;
+    color: var(--teams-gray-700);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .teams-tab-active {
+    background: var(--teams-purple);
+    color: white;
+    border-color: var(--teams-purple);
+  }
+  
+  .teams-response-guidelines {
+    margin-bottom: 12px;
+  }
+  
+  .teams-response-guidelines p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    color: var(--teams-gray-600);
+  }
+  
+  .teams-response-guidelines ul {
+    margin: 0;
+    padding-left: 16px;
+  }
+  
+  .teams-response-guidelines li {
+    font-size: 11px;
+    color: var(--teams-gray-500);
+    margin-bottom: 2px;
+  }
+  
+  .teams-response-textarea {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid var(--teams-gray-300);
+    border-radius: 4px;
+    padding: 12px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    resize: vertical;
+  }
+  
+  .teams-response-textarea:focus {
+    outline: none;
+    border-color: var(--teams-purple);
+    box-shadow: 0 0 0 1px var(--teams-purple);
+  }
+  
+  /* Confidence Selector */
+  .teams-confidence-selector {
+    padding: 16px;
+    border-top: 1px solid var(--teams-gray-200);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .teams-confidence-selector label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-confidence-options {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .teams-confidence-button {
+    padding: 6px 12px;
+    border: 1px solid var(--teams-gray-200);
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: var(--teams-gray-700);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .teams-confidence-active {
+    background: var(--teams-green);
+    color: white;
+    border-color: var(--teams-green);
+  }
+  
+  /* Question Actions */
+  .teams-question-actions {
+    padding: 16px;
+    border-top: 1px solid var(--teams-gray-200);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  /* Buttons */
+  .teams-button {
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .teams-button-primary {
+    background: var(--teams-purple);
+    color: white;
+  }
+  
+  .teams-button-primary:hover {
+    background: var(--teams-purple-dark);
+  }
+  
+  .teams-button-secondary {
+    background: var(--teams-gray-500);
+    color: white;
+  }
+  
+  .teams-button-secondary:hover {
+    background: var(--teams-gray-600);
+  }
+  
+  .teams-button-success {
+    background: var(--teams-green);
+    color: white;
+  }
+  
+  .teams-button-success:hover {
+    background: #0e6b0e;
+  }
+  
+  .teams-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* AI Validation */
+  .teams-ai-validation {
+    margin-top: 16px;
+    background: var(--teams-yellow-light);
+    border: 1px solid var(--teams-yellow);
+    border-radius: 4px;
+    padding: 12px;
+  }
+  
+  .teams-validation-loading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #8A6914;
+  }
+  
+  .teams-validation-result {
+    font-size: 11px;
+    color: #8A6914;
+  }
+  
+  .teams-validation-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .teams-validation-suggestions ul {
+    margin: 4px 0 0 16px;
+    padding: 0;
+  }
+  
+  .teams-validation-suggestions li {
+    margin-bottom: 2px;
+  }
+  
+  /* Data Panel */
+  .teams-data-panel {
+    width: 220px;
+    background: var(--teams-gray-50);
+    border-left: 1px solid var(--teams-gray-200);
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .teams-data-panel h4 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  /* Welcome Screen */
+  .teams-welcome {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+  
+  .teams-welcome-content {
+    text-align: center;
+    max-width: 400px;
+  }
+  
+  .teams-welcome-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  
+  .teams-welcome-content h2 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--teams-gray-700);
+  }
+  
+  .teams-welcome-content p {
+    margin: 0 0 24px 0;
+    font-size: 13px;
+    color: var(--teams-gray-600);
+  }
+  
+  .teams-suggestion-button {
+    background: var(--teams-gray-100);
+    border: 1px solid var(--teams-gray-200);
+    border-radius: 16px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--teams-gray-700);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .teams-suggestion-button:hover {
+    background: var(--teams-gray-200);
+  }
+  
+  /* Quick Actions */
+  .teams-quick-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 32px;
+    max-width: 1200px;
+  }
+  
+  .teams-action-card {
+    background: #FFFFFF;
+    border: 1px solid var(--teams-gray-200);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  
+  .teams-action-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .teams-card-header {
+    padding: 12px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .teams-card-purple .teams-card-header {
+    background: var(--teams-purple);
+  }
+  
+  .teams-card-green .teams-card-header {
+    background: var(--teams-green);
+  }
+  
+  .teams-card-red .teams-card-header {
+    background: var(--teams-red);
+  }
+  
+  .teams-card-content {
+    padding: 12px;
+  }
+  
+  .teams-card-content p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--teams-gray-600);
+    line-height: 1.3;
+  }
+  
+  .teams-card-actions {
+    padding: 12px;
+  }
+  
+  .teams-notification-card {
+    grid-column: 1 / -1;
+    background: var(--teams-yellow-light);
+    border: 1px solid var(--teams-yellow);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  
+  .teams-notification-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #8A6914;
+  }
+  
+  .teams-notification-card ul {
+    margin: 0 0 12px 0;
+    padding-left: 16px;
+  }
+  
+  .teams-notification-card li {
+    font-size: 11px;
+    color: #8A6914;
+    margin-bottom: 2px;
+  }
+  
+  .teams-button-warning {
+    background: var(--teams-yellow);
+    color: #8A6914;
+    font-weight: 600;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .teams-questionnaire {
+      flex-direction: column;
+    }
+    
+    .teams-question-navigator {
+      width: 100%;
+      height: 200px;
+    }
+    
+    .teams-questionnaire-body {
+      flex-direction: column;
+    }
+    
+    .teams-data-panel {
+      width: 100%;
+      height: 200px;
+    }
+    
+    .teams-quick-actions {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Loading and Error States */
+  .teams-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    font-size: 14px;
+    color: var(--teams-gray-600);
+  }
+  
+  .teams-error {
+    padding: 32px;
+    text-align: center;
+    color: var(--teams-red);
+    font-size: 14px;
+  }
+  
+  /* Utility Classes */
+  .teams-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /*
+.teams-data-panel {
+  width: 220px;
+  background: var(--teams-gray-50);
+  border-left: 1px solid var(--teams-gray-200);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.teams-data-card {
+  background: #FFFFFF;
+  border: 1px solid var(--teams-gray-200);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.teams-data-card-success {
+  border-left: 3px solid var(--teams-green);
+}
+
+.teams-data-card-error {
+  border-left: 3px solid var(--teams-red);
+}
+
+.teams-data-card-info {
+  border-left: 3px solid var(--teams-blue);
+}
+
+.teams-data-header {
+  background: var(--teams-gray-100);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--teams-gray-200);
+}
+
+.teams-data-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--teams-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.teams-data-content {
+  padding: 12px;
+}
+
+.teams-data-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.teams-data-item:last-child {
+  margin-bottom: 0;
+}
+
+.teams-data-label {
+  color: var(--teams-gray-600);
+  flex: 1;
+}
+
+.teams-data-value {
+  font-weight: 500;
+  color: var(--teams-gray-700);
+  text-align: right;
+}
+
+.teams-data-warning .teams-data-value {
+  color: var(--teams-red);
+  font-weight: 600;
+}
+
+.teams-data-highlight {
+  color: var(--teams-yellow);
+  font-weight: 600;
+}
+
+.teams-data-note {
+  font-size: 10px;
+  color: var(--teams-gray-500);
+  font-style: italic;
+  margin-top: 4px;
+}
+*/
+  

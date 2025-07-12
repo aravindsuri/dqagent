@@ -1,0 +1,76 @@
+{
+    "metadata": {
+      "reporting_date": "2025-05-31",
+      "delivering_entity_code": "76", 
+      "delivering_entity_name": "Daimler Truck FS",
+      "country": "Netherlands",
+      "generated_at": "2025-05-31T00:00:00Z"
+    },
+    "overview": {
+      "portfolios": [
+        {
+          "type": "Portfolio",
+          "criteria": "Relevant Portfolio",
+          "currency": "EUR",
+          "no_of_contracts": 8720,
+          "weighted_irr_nominal": 4.96,
+          "nbv_local_cms": 519505225.35,
+          "gross_exposure": 529650427.19,
+          "net_book_value": 528967460.05,
+          "delinquent_amount": 682924.14,
+          "downpayment": 73622686.74
+        },
+        {
+          "type": "Portfolio",
+          "criteria": "Error",
+          "currency": "EUR",
+          "no_of_contracts": 3,
+          "weighted_irr_nominal": 3.72,
+          "nbv_local_cms": 0.00,
+          "gross_exposure": -0.15,
+          "net_book_value": -0.16,
+          "delinquent_amount": 0.00,
+          "downpayment": 62560.7
+        }
+      ],
+      "summary": {
+        "total_contracts": 8723,
+        "total_delinquent_amount": 682924.14,
+        "delinquency_rate": 0.131
+      },
+      "issues_identified": [
+        {
+          "type": "high_delinquency",
+          "severity": "critical",
+          "description": "Delinquent amount exceeds €500K threshold",
+          "impact": "financial"
+        }
+      ]
+    },
+    "additional_info": {
+      "changes": {
+        "Changes in Contract End Date": 186,
+        "Changes in Rating": 145,
+        "Changes in Borrower Type": 16,
+        "Changes in Dealer": 27,
+        "Changes in Asset Model Date": 6,
+        "Changes in Balloon RV": 11
+      },
+      "summary": {
+        "total_changes": 391,
+        "high_impact_changes_count": 2,
+        "contract_related_changes": 186
+      }
+    },
+    "risk_analysis": {
+      "risk_score": 8.2,
+      "priority_areas": ["portfolio_integrity", "delinquency_management"],
+      "thresholds_breached": [
+        {
+          "metric": "delinquent_amount",
+          "value": 682924.14,
+          "threshold": 500000
+        }
+      ]
+    }
+  }
