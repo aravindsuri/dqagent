@@ -24,7 +24,7 @@ venv/
 env/
 
 # IDEs
-.vscode/
+
 .idea/
 *.swp
 *.swo
@@ -60,7 +60,7 @@ lerna-debug.log*
 
 # Azure Functions
 .azure/
-.vscode/
+
 local.settings.json
 .func/
 .azurite/
