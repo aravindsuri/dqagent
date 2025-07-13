@@ -193,15 +193,35 @@ const Questionnaire: React.FC<{
     }
   };
 
+  // Updated questionnaire loading section in Dashboard.tsx
   if (loading) {
     return (
       <div style={{ padding: '32px', background: '#FAFBFC', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '32px', marginBottom: '16px' }}>🔄</div>
-          <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '600' }}>
+        <div style={{ 
+          background: 'white',
+          borderRadius: '12px',
+          padding: '40px',
+          textAlign: 'center',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05)',
+          border: '1px solid #E5E7EB',
+          maxWidth: '400px'
+        }}>
+          <div style={{ 
+            width: '40px', 
+            height: '40px', 
+            border: '3px solid #E5E7EB', 
+            borderTop: '3px solid #6366F1', 
+            borderRadius: '50%', 
+            animation: 'spin 1s linear infinite',
+            margin: '0 auto 16px auto'
+          }}></div>
+          <style>
+            {`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}
+          </style>
+          <h3 style={{ margin: '0 0 8px 0', fontSize: '18px', fontWeight: '600', color: '#374151' }}>
             Generating Questionnaire
           </h3>
-          <p style={{ margin: '0', color: '#64748B' }}>
+          <p style={{ margin: '0', color: '#64748B', fontSize: '14px' }}>
             Analyzing data for {selectedCountry} ({selectedDate})...
           </p>
         </div>

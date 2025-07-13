@@ -511,8 +511,8 @@ def generate_powerpoint_content_react(question: str, country: str, month: str, m
     • Portfolio size: {total_contracts:,} contracts worth €{total_nbv/1000000:.1f}M
     • Average IRR: {avg_irr*100:.2f}%
     • Delinquency rate: {(total_delinquent/total_nbv*100) if total_nbv > 0 else 0:.2f}%
-    • Best performing segment: {top_performer.get('group_name', 'N/A') if top_performer else 'N/A'} ({((top_performer.get('irr_nominal') or 0) * 100):.2f}% IRR if top_performer else '0.00% IRR'})
-    • Underperforming segment: {bottom_performer.get('group_name', 'N/A') if bottom_performer else 'N/A'} ({((bottom_performer.get('irr_nominal') or 0) * 100):.2f}% IRR if bottom_performer else '0.00% IRR'})
+    • Best performing segment: {top_performer.get('group_name', 'N/A') if top_performer else 'N/A'} ({(top_performer.get('irr_nominal', 0) * 100):.2f}% IRR)
+    • Underperforming segment: {bottom_performer.get('group_name', 'N/A') if bottom_performer else 'N/A'} ({(bottom_performer.get('irr_nominal', 0) * 100):.2f}% IRR)
     
     This data tells a clear story about portfolio performance and risk distribution.
     """
@@ -663,15 +663,15 @@ def generate_slide_content(country: str, month: str, insights: Dict, metrics_dat
             "top_performers": [
                 {
                     "name": item.get('group_name', 'Unknown'),
-                    "irr": f"{((item.get('irr_nominal') or 0) * 100):.2f}%",
-                    "nbv": f"€{((item.get('net_book_value') or 0) / 1000000):.1f}M"
+                    "irr": f"{(item.get('irr_nominal', 0) * 100):.2f}%",
+                    "nbv": f"€{(item.get('net_book_value', 0) / 1000000):.1f}M"
                 }
                 for item in sorted(metrics_data, key=lambda x: x.get('irr_nominal', 0) or 0, reverse=True)[:3]
             ],
             "underperformers": [
                 {
                     "name": item.get('group_name', 'Unknown'), 
-                    "irr": f"{((item.get('irr_nominal') or 0) * 100):.2f}%",
+                    "irr": f"{(item.get('irr_nominal', 0) * 100):.2f}%",
                     "issues": "Low profitability" if (item.get('irr_nominal', 0) * 100) < 3 else "Review required"
                 }
                 for item in sorted(metrics_data, key=lambda x: x.get('irr_nominal', 0) or 0)[:3]

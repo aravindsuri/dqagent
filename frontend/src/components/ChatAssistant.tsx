@@ -63,16 +63,6 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
     }
   };
 
-  const getStepIcon = (type: string) => {
-    switch (type) {
-      case 'thinking': return '🤔';
-      case 'action': return '⚡';
-      case 'observation': return '👀';
-      case 'final_answer': return '✅';
-      default: return '📋';
-    }
-  };
-
   const getStatusBackground = (status: string) => {
     switch (status) {
       case 'completed': return '#D1FAE5';
@@ -91,7 +81,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
       <div style={{ 
         marginTop: '12px', 
         border: '1px solid #E5E7EB', 
-        borderRadius: '6px',
+        borderRadius: '8px',
         background: 'white'
       }}>
         <div style={{ 
@@ -104,7 +94,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
           alignItems: 'center',
           gap: '8px'
         }}>
-          📊 {deliverable.presentation_title}
+          {deliverable.presentation_title}
           <span style={{ fontSize: '11px', color: '#6B7280', fontWeight: '400' }}>
             ({deliverable.slides.length} slides)
           </span>
@@ -117,7 +107,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
               padding: '8px',
               background: '#FAFBFC',
               border: '1px solid #F0F1F2',
-              borderRadius: '4px'
+              borderRadius: '6px'
             }}>
               <div style={{ fontWeight: '500', fontSize: '12px', marginBottom: '4px' }}>
                 Slide {slide.slide_number}: {slide.title}
@@ -150,11 +140,11 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
               color: 'white',
               border: 'none',
               padding: '6px 12px',
-              borderRadius: '4px',
+              borderRadius: '6px',
               fontSize: '11px',
               cursor: 'pointer'
             }}>
-              📥 Download PPT
+              Download PPT
             </button>
             
             <button style={{
@@ -162,11 +152,11 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
               color: '#374151',
               border: '1px solid #D1D5DB',
               padding: '6px 12px',
-              borderRadius: '4px',
+              borderRadius: '6px',
               fontSize: '11px',
               cursor: 'pointer'
             }}>
-              👁️ Preview
+              Preview
             </button>
             
             {deliverable.email_ready && (
@@ -175,11 +165,11 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
                 color: 'white',
                 border: 'none',
                 padding: '6px 12px',
-                borderRadius: '4px',
+                borderRadius: '6px',
                 fontSize: '11px',
                 cursor: 'pointer'
               }}>
-                📧 Send Email
+                Send Email
               </button>
             )}
           </div>
@@ -198,7 +188,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
             padding: '10px', 
             background: getStepBackground(step.type),
             borderLeft: `4px solid ${getStepColor(step.type)}`,
-            borderRadius: '4px',
+            borderRadius: '6px',
             fontSize: '12px'
           }}>
             <div style={{ 
@@ -208,14 +198,14 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
               marginBottom: '4px'
             }}>
               <span style={{ fontWeight: '600', color: getStepColor(step.type) }}>
-                {getStepIcon(step.type)} {step.type.replace('_', ' ').toUpperCase()}
+                {step.type.replace('_', ' ').toUpperCase()}
               </span>
               <span style={{ 
                 fontSize: '10px', 
                 color: '#6B7280',
                 background: getStatusBackground(step.status),
                 padding: '2px 6px',
-                borderRadius: '10px'
+                borderRadius: '12px'
               }}>
                 {step.status}
               </span>
@@ -237,7 +227,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
                 marginTop: '6px', 
                 padding: '6px', 
                 background: '#F8FAFC', 
-                borderRadius: '3px',
+                borderRadius: '4px',
                 fontSize: '11px',
                 color: '#64748B'
               }}>
@@ -554,20 +544,6 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
         flexShrink: 0
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{
-            width: '28px',
-            height: '28px',
-            background: 'linear-gradient(135deg, #6366F1, #8B5CF6)',
-            borderRadius: '6px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            fontSize: '12px',
-            fontWeight: '700'
-          }}>
-            💬
-          </div>
           <div>
             <h3 style={{ margin: '0', fontSize: '16px', fontWeight: '600', color: '#1F2937' }}>
               AI Assistant
@@ -622,20 +598,6 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
       }}>
         {chatMessages.length === 0 ? (
           <div style={{ textAlign: 'center' }}>
-            <div style={{
-              width: '60px',
-              height: '60px',
-              background: 'linear-gradient(135deg, #F8FAFC, #F1F5F9)',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 20px auto',
-              fontSize: '24px'
-            }}>
-              💬
-            </div>
-
             <h3 style={{ margin: '0 0 12px 0', fontSize: '18px', fontWeight: '600', color: '#1E293B' }}>
               How can I help?
             </h3>
@@ -788,7 +750,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E0F2FE'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F0F9FF'}
                 >
-                  📊 "Create a portfolio performance presentation"
+                  "Create a portfolio performance presentation"
                 </button>
 
                 <button 
@@ -808,7 +770,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
                   onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E0F2FE'}
                   onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F0F9FF'}
                 >
-                  📈 "Generate quarterly review slides"
+                  "Generate quarterly review slides"
                 </button>
               </div>
             </div>
@@ -825,15 +787,15 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
                   }}
                 >
                   <div style={{
-                    maxWidth: message.actionSteps ? '95%' : '85%',  // NEW: Wider for ReAct
-                    padding: '10px 14px',
-                    borderRadius: message.isUser ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
+                    maxWidth: message.actionSteps ? '95%' : '85%',
+                    padding: '12px 16px',
+                    borderRadius: '18px',
                     background: message.isUser ? '#6366F1' : 'white',
                     color: message.isUser ? 'white' : '#1E293B',
                     fontSize: '13px',
                     lineHeight: '1.4',
-                    border: message.isUser ? 'none' : '1px solid #E2E8F0',
-                    boxShadow: message.isUser ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.05)'
+                    border: `1px solid ${message.isUser ? '#6366F1' : '#E2E8F0'}`,
+                    boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)'
                   }}>
                     {message.isUser ? (
                       message.text
@@ -891,7 +853,7 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
                     
                     <div style={{
                       fontSize: '10px',
-                      marginTop: '4px',
+                      marginTop: '6px',
                       opacity: '0.7'
                     }}>
                       {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -904,8 +866,8 @@ export const ChatAssistant: React.FC<ChatAssistantProps> = ({
                 <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                   <div style={{
                     maxWidth: '85%',
-                    padding: '10px 14px',
-                    borderRadius: '16px 16px 16px 4px',
+                    padding: '12px 16px',
+                    borderRadius: '18px',
                     background: 'white',
                     color: '#1E293B',
                     fontSize: '13px',
