@@ -780,29 +780,6 @@ const AIInsights: React.FC<{
           <h2 style={{ margin: '0', fontSize: '28px', fontWeight: '700', color: '#1E293B' }}>
             AI Insights Dashboard
           </h2>
-          <button
-            onClick={onOpenChat}
-            style={{
-              background: '#6366F1',
-              border: 'none',
-              borderRadius: '8px',
-              padding: '12px 16px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-              color: 'white',
-              fontSize: '14px',
-              fontWeight: '600'
-            }}
-            title="Open Chat Assistant"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2H4C2.9 2 2.01 2.9 2.01 4L2 22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM18 14H6V12H18V14ZM18 11H6V9H18V11ZM18 8H6V6H18V8Z" fill="white"/>
-            </svg>
-            Ask AI Assistant
-          </button>
         </div>
 
         {/* Main Content: Heat Map + AI Panel */}
@@ -1401,16 +1378,21 @@ export const Dashboard = () => {
           <div style={{
             width: '40px',
             height: '40px',
-            background: 'white',
+            background: 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '16px',
             fontWeight: '700',
-            color: '#6366F1'
+            color: 'white'
           }}>
-            DQ
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 17h2a3 3 0 0 0 6 0h2a3 3 0 0 0 6 0h2v-5l-3-4h-2V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v11z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="6" cy="17" r="2" stroke="white" strokeWidth="2"/>
+              <circle cx="18" cy="17" r="2" stroke="white" strokeWidth="2"/>
+              <path d="M15 5v3h3l2 2" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
           <div>
             <h1 style={{ margin: '0', fontSize: '20px', fontWeight: '700' }}>
@@ -1622,184 +1604,76 @@ export const Dashboard = () => {
                      '⏳ Ready to load'}
                   </div>
                 </div>
-                
-                {/* Test API Button */}
-                <button
-                  onClick={async () => {
-                    try {
-                      console.log('Testing API connection...');
-                      const response = await fetch(`${API_BASE_URL}/health`);
-                      const data = await response.json();
-                      console.log('Health check response:', data);
-                      alert(`API Status: ${data.status}`);
-                    } catch (err) {
-                      console.error('Health check failed:', err);
-                      alert(`API Error: ${err}`);
-                    }
-                  }}
-                  style={{
-                    width: '100%',
-                    background: '#F3F4F6',
-                    border: '1px solid #D1D5DB',
-                    borderRadius: '6px',
-                    padding: '8px 12px',
-                    fontSize: '12px',
-                    cursor: 'pointer',
-                    marginBottom: '16px'
-                  }}
-                >
-                  🔍 Test API Connection
-                </button>
-
-                {/* Chat Button */}
-                <button
-                  onClick={handleOpenChat}
-                  style={{
-                    width: '100%',
-                    background: '#6366F1',
-                    border: 'none',
-                    borderRadius: '6px',
-                    padding: '12px 16px',
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    color: 'white',
-                    fontWeight: '600',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px'
-                  }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 2H4C2.9 2 2.01 2.9 2.01 4L2 22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM18 14H6V12H18V14ZM18 11H6V9H18V11ZM18 8H6V6H18V8Z" fill="white"/>
-                  </svg>
-                  Chat Assistant
-                </button>
               </div>
             )}
 
             {activeTab === 'insights' && (
               <div>
                 <h3 style={{ margin: '0 0 16px 0', fontSize: '14px', fontWeight: '600' }}>
-                  Recent AI Insights
+                  Quick Actions
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <div style={{
-                    padding: '8px',
-                    background: '#FEF2F2',
-                    border: '1px solid #FECACA',
+                    background: '#F9FAFB',
+                    border: '1px solid #E5E7EB',
+                    borderLeft: '4px solid #6366F1',
                     borderRadius: '6px',
-                    fontSize: '12px'
+                    padding: '10px',
+                    cursor: 'pointer'
                   }}>
-                    <div style={{ fontWeight: '600', color: '#DC2626' }}>Critical Alert</div>
-                    <div style={{ color: '#7F1D1D' }}>Data completeness drop detected</div>
+                    <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
+                      Export Report
+                    </div>
+                    <div style={{ fontSize: '10px', color: '#6B7280' }}>
+                      Download current metrics
+                    </div>
                   </div>
                   <div style={{
-                    padding: '8px',
-                    background: '#EBF8FF',
-                    border: '1px solid #BAE6FD',
+                    background: '#F9FAFB',
+                    border: '1px solid #E5E7EB',
+                    borderLeft: '4px solid #6366F1',
                     borderRadius: '6px',
-                    fontSize: '12px'
+                    padding: '10px',
+                    cursor: 'pointer'
                   }}>
-                    <div style={{ fontWeight: '600', color: '#0078D4' }}>Prediction</div>
-                    <div style={{ color: '#1E40AF' }}>Quality improvement trend</div>
-                  </div>
-                </div>
-
-                {/* Quick Actions moved here */}
-                <div style={{ marginTop: '24px' }}>
-                  <h3 style={{ margin: '0 0 16px 0', fontSize: '14px', fontWeight: '600' }}>
-                    Quick Actions
-                  </h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <div style={{
-                      background: '#F9FAFB',
-                      border: '1px solid #E5E7EB',
-                      borderLeft: '4px solid #6366F1',
-                      borderRadius: '6px',
-                      padding: '10px',
-                      cursor: 'pointer'
-                    }}>
-                      <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
-                        Export Report
-                      </div>
-                      <div style={{ fontSize: '10px', color: '#6B7280' }}>
-                        Download current metrics
-                      </div>
+                    <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
+                      Send Email
                     </div>
-                    <div style={{
-                      background: '#F9FAFB',
-                      border: '1px solid #E5E7EB',
-                      borderLeft: '4px solid #6366F1',
-                      borderRadius: '6px',
-                      padding: '10px',
-                      cursor: 'pointer'
-                    }}>
-                      <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
-                        Send Email
-                      </div>
-                      <div style={{ fontSize: '10px', color: '#6B7280' }}>
-                        Share summary with team
-                      </div>
-                    </div>
-                    <div style={{
-                      background: '#F9FAFB',
-                      border: '1px solid #E5E7EB',
-                      borderLeft: '4px solid #6366F1',
-                      borderRadius: '6px',
-                      padding: '10px',
-                      cursor: 'pointer'
-                    }}>
-                      <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
-                        Schedule Meeting
-                      </div>
-                      <div style={{ fontSize: '10px', color: '#6B7280' }}>
-                        Plan team discussion
-                      </div>
-                    </div>
-                    <div style={{
-                      background: '#F9FAFB',
-                      border: '1px solid #E5E7EB',
-                      borderLeft: '4px solid #6366F1',
-                      borderRadius: '6px',
-                      padding: '10px',
-                      cursor: 'pointer'
-                    }}>
-                      <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
-                        Setup Alerts
-                      </div>
-                      <div style={{ fontSize: '10px', color: '#6B7280' }}>
-                        Configure notifications
-                      </div>
+                    <div style={{ fontSize: '10px', color: '#6B7280' }}>
+                      Share summary with team
                     </div>
                   </div>
-                </div>
-
-                {/* Chat Button */}
-                <button
-                  onClick={handleOpenChat}
-                  style={{
-                    width: '100%',
-                    background: '#6366F1',
-                    border: 'none',
+                  <div style={{
+                    background: '#F9FAFB',
+                    border: '1px solid #E5E7EB',
+                    borderLeft: '4px solid #6366F1',
                     borderRadius: '6px',
-                    padding: '12px 16px',
-                    fontSize: '14px',
-                    cursor: 'pointer',
-                    color: 'white',
-                    fontWeight: '600',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    marginTop: '16px'
-                  }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 2H4C2.9 2 2.01 2.9 2.01 4L2 22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM18 14H6V12H18V14ZM18 11H6V9H18V11ZM18 8H6V6H18V8Z" fill="white"/>
-                  </svg>
-                  Chat Assistant
-                </button>
+                    padding: '10px',
+                    cursor: 'pointer'
+                  }}>
+                    <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
+                      Schedule Meeting
+                    </div>
+                    <div style={{ fontSize: '10px', color: '#6B7280' }}>
+                      Plan team discussion
+                    </div>
+                  </div>
+                  <div style={{
+                    background: '#F9FAFB',
+                    border: '1px solid #E5E7EB',
+                    borderLeft: '4px solid #6366F1',
+                    borderRadius: '6px',
+                    padding: '10px',
+                    cursor: 'pointer'
+                  }}>
+                    <div style={{ fontSize: '12px', fontWeight: '600', marginBottom: '2px' }}>
+                      Setup Alerts
+                    </div>
+                    <div style={{ fontSize: '10px', color: '#6B7280' }}>
+                      Configure notifications
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
